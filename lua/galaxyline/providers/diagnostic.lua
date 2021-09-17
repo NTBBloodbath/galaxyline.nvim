@@ -4,7 +4,7 @@ local diagnostic = {}
 local function get_coc_diagnostic(diag_type)
   local has_info, info = pcall(vim.api.nvim_buf_get_var, 0, "coc_diagnostic_info")
   if not has_info then
-    return
+    return 0
   end
 
   return info[diag_type]
