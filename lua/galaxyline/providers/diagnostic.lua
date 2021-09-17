@@ -4,7 +4,7 @@ local diagnostic = {}
 local function get_coc_diagnostic(diag_type)
   local has_info, info = pcall(vim.api.nvim_buf_get_var, 0, "coc_diagnostic_info")
   if not has_info then
-    return ""
+    return
   end
 
   return info[diag_type]
@@ -42,6 +42,9 @@ end
 
 local function get_formatted_diagnostic(diag_type)
   local count = diagnostic.get_diagnostic(diag_type)
+  if not count then
+    return
+  end
   return count ~= 0 and count .. " " or ""
 end
 
