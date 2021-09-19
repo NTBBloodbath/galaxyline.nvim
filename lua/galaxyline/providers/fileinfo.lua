@@ -19,7 +19,7 @@ local function file_with_icons(file, modified_icon, readonly_icon)
   end
 
   modified_icon = modified_icon or ""
-  readonly_icon = readonly_icon or ""
+  readonly_icon = readonly_icon or ""
 
   if file_readonly() then
     file = readonly_icon .. " " .. file
