@@ -181,12 +181,8 @@ local function load_section(section_area, pos)
       section = section .. ls
       local group = "Galaxy" .. component_name
       local sgroup = component_name .. "Separator"
-      if not hi_tbl[group] then
-        hi_tbl[group] = component_info.highlight or {}
-      end
-      if not hi_tbl[sgroup] then
-        hi_tbl[sgroup] = component_info.separator_highlight or {}
-      end
+      hi_tbl[group] = component_info.highlight or {}
+      hi_tbl[sgroup] = component_info.separator_highlight or {}
       if component_info.event and vim.fn.index(events, component_info.event) == -1 then
         events[#events + 1] = component_info.event
       end

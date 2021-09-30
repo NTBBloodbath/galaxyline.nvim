@@ -54,7 +54,7 @@ local function set_highlight(group, hi_info)
     style = hi_info[3] and _switch[type(hi_info[3])](style, hi_info[3]) or ""
   end
 
-  vim.api.nvim_command("highlight " .. group .. " " .. fg .. " " .. bg .. " " .. style)
+  vim.api.nvim_command("highlight! " .. group .. " " .. fg .. " " .. bg .. " " .. style)
 end
 
 function highlights.init_theme(hi_tbl)
