@@ -195,6 +195,10 @@ local short_line = ""
 local normal_line = ""
 
 function galaxyline.load_galaxyline()
+  if vim.api.nvim_win_get_config(0).relative ~= "" then
+    return
+  end
+
   local left_section = load_section(galaxyline.section.left, "left")
   local right_section = load_section(galaxyline.section.right, "right")
   local mid_section = next(galaxyline.section.mid) ~= nil and load_section(galaxyline.section.mid, "mid") or nil
@@ -211,11 +215,11 @@ function galaxyline.load_galaxyline()
   normal_line = line
   short_line = short_left_section .. "%=" .. short_right_section
 
-  if vim.fn.index(galaxyline.short_line_list, vim.bo.filetype) ~= -1 then
+  if vim.tbl_contains(galaxyline.short_line_list, vim.bo.filetype) then
     line = short_line
   end
 
-  if vim.fn.index(galaxyline.exclude_filetypes, vim.bo.filetype) == -1 then
+  if not vim.tbl_contains(galaxyline.exclude_filetypes, vim.bo.filetype) then
     vim.wo.statusline = line
     galaxyline.init_colorscheme()
   end
