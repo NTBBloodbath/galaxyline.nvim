@@ -10,14 +10,29 @@ local function get_coc_diagnostic(diag_type)
   return info[diag_type]
 end
 
+local nvim_lsp_diag_types = {
+  'Error',
+  'Warning',
+  'Information',
+  'Hint',
+}
+
 -- nvim-lspconfig
 -- see https://github.com/neovim/nvim-lspconfig
-local function get_nvim_lsp_diagnostic()
+local function get_nvim_lsp_diagnostic(diag_type)
   if next(vim.lsp.buf_get_clients(0)) == nil then
     return ''
   end
 
-  return #vim.diagnostic.get(vim.api.nvim_get_current_buf())
+  local count = 0
+  local diagnostics = vim.diagnostic.get(vim.api.nvim_get_current_buf())
+  for _, diag in ipairs(diagnostics) do
+    if nvim_lsp_diag_types[diag.severity] == diag_type then
+      count = count + 1
+    end
+  end
+
+  return count
 end
 
 diagnostic.get_diagnostic = function(diag_type)
@@ -26,7 +41,7 @@ diagnostic.get_diagnostic = function(diag_type)
   if vim.fn.exists('*coc#rpc#start_server') == 1 then
     count = get_coc_diagnostic(diag_type:lower())
   elseif not vim.tbl_isempty(vim.lsp.buf_get_clients(0)) then
-    count = get_nvim_lsp_diagnostic()
+    count = get_nvim_lsp_diagnostic(diag_type)
   end
 
   return count
