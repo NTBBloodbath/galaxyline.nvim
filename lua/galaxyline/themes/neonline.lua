@@ -1,3 +1,6 @@
+-- Original design by Groctel:
+-- https://github.com/Groctel/dotfiles/blob/0ccd8d6d992f300c6a79fc8987ed64132790e817/files-common/.config/nvim/lua/neonline.lua
+
 local gl     = require('galaxyline')
 local gls    = gl.section
 local colors = {
