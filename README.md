@@ -6,7 +6,7 @@ componentizes Vim's statusline by having a provider for each text area.
 This means you can use the api provided by galaxyline to create the statusline
 that you want, easily.
 
-> **IMPORTANT**: galaxyline requires neovim 0.5 onwards
+> **IMPORTANT**: galaxyline requires neovim 0.6 onwards
 
 ## Install
 
