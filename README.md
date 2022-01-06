@@ -42,6 +42,9 @@ The type of all of these section variables:
 - `require("galaxyline").section.short_line_left` the statusline left section
   when filetype is in `short_line_list` and for inactive window
 
+- `require("galaxyline").section.short_line_mid` the statusline mid section
+  when filetype is in `short_line_list` and for inactive window
+
 - `require("galaxyline").section.short_line_right` statusline right section when
   filetype is in `short_line_list` and for inactive window
 
