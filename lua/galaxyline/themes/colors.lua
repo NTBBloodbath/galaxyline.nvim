@@ -25,6 +25,7 @@ colors["doom-one"] = {
   magenta = "#c678dd",
   blue = "#51afef",
   red = "#ff6c6b",
+  violet = "#a9a1e1",
 }
 
 colors.gruvbox = {
@@ -38,6 +39,7 @@ colors.gruvbox = {
   magenta = "#d3869b",
   blue = "#7daea3",
   red = "#ea6962",
+  violet = "#a9a1e1",
 }
 
 colors.nord = {
@@ -51,6 +53,7 @@ colors.nord = {
   magenta = "#B48EAD",
   blue = "#5E81AC",
   red = "#BF616A",
+  violet = "#a9a1e1",
 }
 
 colors.dracula = {
@@ -64,6 +67,7 @@ colors.dracula = {
   magenta = "#BD93F9",
   blue = "#A4FFFF",
   red = "#FF5555",
+  violet = "#a9a1e1",
 }
 
 colors.get_color = function(color)
