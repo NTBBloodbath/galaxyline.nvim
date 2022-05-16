@@ -196,7 +196,7 @@ local short_line = ""
 local normal_line = ""
 
 function galaxyline.load_galaxyline()
-  if vim.api.nvim_win_get_config(0).relative ~= "" then
+  if vim.o.laststatus ~= 3 and vim.api.nvim_win_get_config(0).relative ~= "" then
     return
   end
 
